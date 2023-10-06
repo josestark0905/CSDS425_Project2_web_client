@@ -1,0 +1,11 @@
+For the arguments, the argument next to -u is the URL and the argument next to -o is the name of the output file. Besides, the -d, -q, -r, -f, -C arguments are all optional and any number and combination of these shows the same output. 
+
+For the URL, it must starts with "http", although the "http" is not case sensitive. If not, the program will throw an Error of Invalid Protocol. In this situation, the wrong protocol of URL will be considered as an invalid argument, so the DBG information will not be shown.
+
+When using the argument -C, http 1.1 will be used for the request, which may turn on the HTTP Keep-Alive connection, which means recv() function takes more time to return a 0 for completed reading, so it may take longer time to receive the response than http 1.0.
+
+Main function is contained in "proj2.c" and all the methods are implemented in "socket_methods.c" and declared in "socket_methods.h". Makefile can automatically build all these three files and make an executable file named "proj2".
+
+If the argument next to -o, which refers to the output filename, does not contain a path, the output file will be made in the same directory of "proj2". However, if you want to add a path to the filename, the path must be existing path, the program will not construct a new path if it does not exist. 
+
+The DBG information will only be shown once when -f argument is used, even if the redirects happen. It's not described in the project2 description, so I only take the information of the first URL as the DBG information.
